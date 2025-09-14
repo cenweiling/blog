@@ -1,7 +1,7 @@
 ---
-title: 微前端
+title: Nuxt
 date: 2025-08-15
-tags: [Nuxt, 服务端渲染]
+tags: [Nuxt, 服务端渲染, Vue]
 categories: Nuxt
 ---
 
@@ -21,7 +21,7 @@ Nuxt.js 的 SSR（服务端渲染）原理是一个非常核心且有趣的话�
 ### 二、Nuxt.js SSR 的核心工作流程
 Nuxt.js 的 SSR 过程可以清晰地分为两个阶段：**服务端渲染**和**客户端激活**。下图展示了从用户请求到页面可交互的完整生命周期：
 
-![画板](https://cdn.nlark.com/yuque/0/2025/jpeg/55999631/1757522658867-d1d335f5-5c7f-443b-bdc8-3a1621a987cb.jpeg)
+<img src="/images/nuxt核心工作流.png" alt="nuxt核心工作流" width="60%" height="auto" style="display:block;">
 
 #### 第一阶段：服务端渲染（Server-Side）
 这个过程发生在 **Nuxt 服务器**（一个 Node.js 服务器）上。

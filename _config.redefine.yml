@@ -15,9 +15,10 @@ info:
   # Site subtitle
   subtitle: Redefine Your Hexo Journey.
   # Author name
-  author: The Redefine Team
+  author: cenweilings@163.com
   # Site URL
-  url: https://redefine.ohevan.com
+  # url: https://redefine.ohevan.com
+  url: https://blog-git-main-cenweilings-projects.vercel.app
 # BASIC INFORMATION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 
@@ -29,7 +30,8 @@ defaults:
   # Site logo
   logo: 
   # Site avatar
-  avatar: /images/redefine-avatar.svg
+  # avatar: /images/redefine-avatar.svg
+  avatar: /images/avatar.jpg
 # IMAGE CONFIGURATION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 
