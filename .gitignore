@@ -6,3 +6,4 @@ public/
 .DS_Store
 Thumbs.db
 db.json" > .gitignore
+node_modules
