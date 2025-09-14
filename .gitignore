@@ -1,0 +1,8 @@
+# 创建 .gitignore
+echo "node_modules/
+public/
+.deploy*/
+*.log
+.DS_Store
+Thumbs.db
+db.json" > .gitignore
