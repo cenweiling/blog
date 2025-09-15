@@ -15,7 +15,7 @@ categories: Vue
 
 
 # 关于不同版本的Vue：
-**<font style="background-color:#E7E9E8;"> vue.js </font>** **与 <font style="background-color:#E7E9E8;"> </font>**<font style="background-color:#E7E9E8;">vue.runtime.xxx.js </font>** 的区别：
+**<font style="background-color:#E7E9E8;"> vue.js </font>** **与 <font style="background-color:#E7E9E8;"> </font>**<font style="background-color:#E7E9E8;">vue.runtime.xxx.js </font> 的区别：
 
 1. **<font style="background-color:#E7E9E8;">vue.js</font>** 是完整版的vue。包含：核心功能+模板解析器。
 2. **<font style="background-color:#E7E9E8;">vue.runtime.xxx.js</font>** 是运行版的Vue。只包含：核心功能，没有模板解析器。
@@ -26,7 +26,7 @@ categories: Vue
 ###### 查看配置
 Vue脚手架隐藏了所有webpack相关的配置，若想查看具体的webpack配置，请执行：<font style="background-color:#E7E9E8;"> </font>**<font style="background-color:#E7E9E8;">vue inspect > output.js </font>**
 
-会在项目根路径下输出一个 **output.js **文件，**注意：该文件仅供查看，修改无效。**
+会在项目根路径下输出一个 **output.js**文件，**注意：该文件仅供查看，修改无效。**
 
 ![vue-cli默认配置](images/vue-cli默认配置.png)
 
@@ -77,17 +77,16 @@ Watcher 并不是单一功能的，根据其执行的任务不同，主要分为
 ##### 二、Watcher 的工作流程：与 Dep 和 Observer 联动
 **Watcher** 不能单独工作，它必须和 **Observer**（数据劫持者）和 **Dep**（依赖管理器）协同工作。这三者的关系是 Vue 响应式的铁三角。
 
-让我们用一个经典的流程图来揭示它们是如何协作的，**并以一个简单的模板 **`**{{ user.name }}**`** 为例**：
+让我们用一个经典的流程图来揭示它们是如何协作的，**并以一个简单的模板 **`{{ user.name }}`** 为例**：
 
 <img src="/images/Watcher工作流程.svg" alt="Watcher工作流程" height="auto" style="width:50%; display:block;">
 
 :::tips
 **关键步骤解读**：
 
-1. `**Observer**`：通过 `Object.defineProperty` 将 `data` 中的每个属性（如 `user`）转换为 `getter` 和 `setter`。
-2. `**Dep**`：每个被监听的属性都会拥有一个自己的 `Dep` 实例（依赖管理器），用来存储所有“依赖”这个数据的 `Watcher`。
-3. `**Watcher**` 的创建：
-    - 当 Vue 初始化组件时，会创建一个**渲染 Watcher**。
+1. **`Observer`**：通过 `Object.defineProperty` 将 `data` 中的每个属性（如 `user`）转换为 `getter` 和 `setter`。
+2. **`Dep`**：每个被监听的属性都会拥有一个自己的 `Dep` 实例（依赖管理器），用来存储所有“依赖”这个数据的 `Watcher`。
+3. **`Watcher` 的**创建： 当 Vue 初始化组件时，会创建一个**渲染 Watcher**。
     - 这个 Watcher 在执行它的第一个任务（即渲染页面）时，会去读取模板中用到的数据，如 `user.name`。
 4. **依赖收集（Depend）**：
     - 读取 `user.name` 会触发之前定义的 `getter`。
@@ -148,7 +147,7 @@ state.count++; // 自动输出: Count is: 1
 | **设计理念** | **“全能型员工”**   与组件实例、选项式 API 强耦合，种类繁多（渲染、计算、用户）。 | **“纯粹的工具”**   一个**与上下文无关**的、**单一职责**的副作用封装器。它不知道自己是用于渲染、计算还是监听。 |
 | **与组件的关系** | **紧密耦合**   每个组件实例必然对应一个渲染 Watcher。Watcher 知道自己是哪个组件的。 | **松散耦合**   `ReactiveEffect`<br/> 本身不知道组件。组件的 `setup`<br/> 函数本身就是一个大的 `ReactiveEffect`<br/>。 |
 | **依赖收集** | **显式、侵入式**   通过 `Dep`<br/> 类和 `pushTarget`<br/>/`popTarget`<br/> 等全局状态管理。 | **隐式、基于栈**   通过全局变量 `activeEffect`<br/> 和 `effectStack`<br/> 来追踪当前正在运行的 effect，更加清晰可靠。 |
-| **功能与灵活性** | **功能固定**   种类和行为在创建时就确定了（如 `lazy`<br/>, `sync`<br/> 等配置）。 | **极其灵活**   通过 `**scheduler**`<br/>** ****调度器** 实现各种高级功能（如 `computed`<br/> 的懒计算、`watch`<br/> 的异步回调）。 |
+| **功能与灵活性** | **功能固定**   种类和行为在创建时就确定了（如 `lazy`<br/>, `sync`<br/> 等配置）。 | **极其灵活**   通过 **`scheduler`**<br/> **调度器** 实现各种高级功能（如 `computed`<br/> 的懒计算、`watch`<br/> 的异步回调）。 |
 | **性能优化** | **较差**   在依赖收集阶段需要频繁创建和遍历 Dep 实例。 | **更优**   使用 `Set`<br/> 和 `Map`<br/> 等原生数据结构管理依赖，效率更高。依赖关系更精细。 |
 
 
@@ -157,11 +156,11 @@ state.count++; // 自动输出: Count is: 1
 ##### 三、最重要的差异：调度器 (scheduler)
 这是 `ReactiveEffect` 相比 `Watcher` 最强大的设计优势。
 
-在创建 `ReactiveEffect` 时，你可以传入一个 `**scheduler**`** ****函数**。当依赖变化时，**默认行为是直接调用**** **`**effect.run()**`，但如果你提供了 `scheduler`，则会**改为调用**** **`**scheduler(effect)**`，把**何时、如何执行副作用**的控制权完全交给了你。
+在创建 `ReactiveEffect` 时，你可以传入一个 **`scheduler`** **函数**。当依赖变化时，**默认行为是直接调用**** `effect.run()`**，但如果你提供了 `scheduler`，则会**改为调用** **`scheduler(effect)`**，把**何时、如何执行副作用**的控制权完全交给了你。
 
-**正是这个**** **`**scheduler**`**，实现了 Vue 3 的所有高级特性：**
+**正是这个** **`scheduler`**，实现了 Vue 3 的所有高级特性：
 
-**1. 实现 **`**computed**`
+**1. 实现** **`computed`**
 
 ```javascript
 function computed(getter) {
@@ -192,7 +191,7 @@ function computed(getter) {
 }
 ```
 
-**2. 实现 **`**watch**`** / **`**watchEffect**`
+**2. 实现** **`watch`** / **`watchEffect`**
 
 ```javascript
 function watch(source, cb, options) {

@@ -130,15 +130,15 @@ stackOverflow() // Uncaught RangeError: Maximum call stack size exceeded
 + setTimeout
 + setInterval
 + setImmediate
-+ I/O（例如网络请求 `<font style="background-color:rgba(77, 208, 225, 0.08);">ajax</font>`、文件读写）
++ I/O（例如网络请求 **<font style="background-color:rgba(77, 208, 225, 0.08);">ajax</font>**、文件读写）
 + UI render
-+ `<font style="background-color:rgba(77, 208, 225, 0.08);">setImmediate</font>` (Node.js环境特有)
++ **<font style="background-color:rgba(77, 208, 225, 0.08);">setImmediate</font>** (Node.js环境特有)
 
 微任务大概包括：
 
-+ `<font style="background-color:rgba(77, 208, 225, 0.08);">Promise.then()</font>`、`<font style="background-color:rgba(77, 208, 225, 0.08);">Promise.catch()</font>`、`<font style="background-color:rgba(77, 208, 225, 0.08);">Promise.finally()</font>`
-+ `<font style="background-color:rgba(77, 208, 225, 0.08);">process.nextTick</font>` (Node.js环境特有)
-+ `<font style="background-color:rgba(77, 208, 225, 0.08);">MutationObserver</font>` (h5新特性 用于监听DOM变化)
++ **<font style="background-color:rgba(77, 208, 225, 0.08);">Promise.then()</font>**、**<font style="background-color:rgba(77, 208, 225, 0.08);">Promise.catch()</font>**、**<font style="background-color:rgba(77, 208, 225, 0.08);">Promise.finally()</font>**
++ **<font style="background-color:rgba(77, 208, 225, 0.08);">process.nextTick</font>** (Node.js环境特有)
++ **<font style="background-color:rgba(77, 208, 225, 0.08);">MutationObserver</font>** (h5新特性 用于监听DOM变化)
 
 ##### EventLoop的执行顺序详解：
 1. **执行同步代码：** 当JavaScript代码开始执行时，会首先执行所有的同步代码。这些同步代码可以被看作是当前宏任务的一部分。在执行过程中，如果遇到异步任务（无论是宏任务还是微任务），就会将其对应的回调函数放入相应的任务队列中。
